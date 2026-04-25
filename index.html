@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andy Mackenzie | Data Platform & AI Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#09090b',
+                        foreground: '#fafafa',
+                        card: '#18181b',
+                        'card-foreground': '#fafafa',
+                        border: '#27272a',
+                        primary: 'hsl(217, 91%, 60%)',
+                        'primary-foreground': '#ffffff',
+                        muted: '#27272a',
+                        'muted-foreground': '#a1a1aa',
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'linear-gradient(135deg, hsl(220 25% 10%) 0%, hsl(220 20% 6%) 100%)',
+                    },
+                    letterSpacing: {
+                        widest: '.2em',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.foreground');
+        }
+        
+        /* Background patterns inspired by Shane Germain */
+        .bg-dots {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        
+        .bg-dots-subtle {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .orb-1 {
+            background: radial-gradient(circle, hsl(217 91% 60% / 0.08), transparent 70%);
+        }
+        
+        .orb-2 {
+            background: radial-gradient(circle, hsl(217 91% 50% / 0.06), transparent 70%);
+        }
+
+        /* Scroll Animations */
+        .animate-in-view {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .animate-in-view.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        .shadow-elegant {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-nav {
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary/30 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-border glass-nav">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="text-sm font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors">
+                Andy | Mackenzie
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
+                <a href="#experience" class="hover:text-foreground transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-foreground transition-colors">Projects</a>
+                <a href="#skills" class="hover:text-foreground transition-colors">Skills</a>
+                <a href="#about" class="hover:text-foreground transition-colors">About</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/amack87" target="_blank" class="text-muted-foreground hover:text-foreground transition-colors">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="https://linkedin.com/in/amack87" target="_blank" class="text-muted-foreground hover:text-foreground transition-colors">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-hero-gradient bg-dots">
+        <!-- Decorative Orbs -->
+        <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full orb-1 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[800px] h-[800px] translate-x-1/3 translate-y-1/3 rounded-full orb-2 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full py-20 lg:py-28">
+            <div class="max-w-3xl animate-in-view">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.08em] text-white mb-6">
+                    Andy Mackenzie
+                </h1>
+                <p class="text-xl lg:text-2xl font-semibold text-white/90 mb-8 leading-relaxed">
+                    Data platform, BI, and internal-tools engineer architecting analytics systems and AI workflow automation.
+                </p>
+                <p class="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl">
+                    15+ years building and scaling data infrastructure, revenue-operations integrations, and intelligent systems. I specialize in turning complex, siloed data into actionable intelligence and automated workflows using Python, Snowflake, and LLM agent orchestration.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="mailto:amack87@gmail.com" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+                        Get in Touch
+                    </a>
+                    <a href="#projects" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-border bg-card hover:bg-border text-foreground h-11 px-8">
+                        View Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience" class="py-20 lg:py-24 bg-background">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16 animate-in-view">
+                <h2 class="text-3xl font-bold text-foreground mb-4 tracking-tight">Professional Experience</h2>
+                <p class="text-lg text-muted-foreground max-w-2xl">Platforms and data systems architected and maintained throughout my career.</p>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Appcues -->
+                <div class="bg-card border border-border rounded-xl p-8 shadow-elegant animate-in-view">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-foreground">Appcues, Inc.</h3>
+                            <p class="text-primary font-medium mt-1">Business Intelligence Architect</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 text-muted-foreground text-sm flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> Aug 2018 – Present
+                        </div>
+                    </div>
+                    <p class="text-muted-foreground mb-6 leading-relaxed">
+                        Sole owner of Appcues' business intelligence and data platform end-to-end: data warehouse, ETL pipelines, modeling, visualization, and the revenue-systems integrations that sit on top of it.
+                    </p>
+                    <ul class="space-y-3 text-muted-foreground/90 list-disc list-outside ml-5">
+                        <li>Saved tens to hundreds of thousands of dollars annually via ETL performance optimization and warehouse-sizing strategies, reducing Snowflake credit spend by 40%.</li>
+                        <li>Reduced daily metric materialization times on 10B+ row tables by 95% using HyperLogLog sketches.</li>
+                        <li>Built and deployed an ETL job MCP using Flask, Pandas, Threading, and Sockets managing 100+ integrations across Netsuite, Snowflake, Hubspot, and Salesforce.</li>
+                        <li>Built a LangGraph service in AWS Bedrock Agentcore that parses client order forms and generates Stripe subscriptions autonomously.</li>
+                        <li>Maintained an AWS Glue pipeline processing terabyte-scale, 100-billion row JSON datasets into Apache Iceberg tables using pyspark.</li>
+                        <li>Sole builder and administrator of Appcues' 300+ model dbt environment and Looker ecosystem.</li>
+                    </ul>
+                </div>
+
+                <!-- Dell EMC -->
+                <div class="bg-card border border-border rounded-xl p-8 shadow-elegant animate-in-view delay-100">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-foreground">Dell EMC Corporation</h3>
+                            <p class="text-primary font-medium mt-1">Sr. Analytics Developer — VMAX Pricing & Analytics</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 text-muted-foreground text-sm flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> Mar 2014 – Aug 2018
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-muted-foreground/90 list-disc list-outside ml-5">
+                        <li>Managed a 3-person analytics team; mentored junior analysts in programming and data science.</li>
+                        <li>Reduced reporting time-to-results by up to 95% by building a comprehensive ETL and reporting stack (PostgreSQL, MSSQL, Python, VBA) surfacing through Tableau Server.</li>
+                        <li>Automated 50% of the order-fulfillment process via a Zapier-based orchestration system.</li>
+                        <li>Built predictive models for install-base lifecycle and opportunity forecasting.</li>
+                        <li>Administered a VMware cluster across 4 Dell rack servers and 20+ VMs for internal tooling.</li>
+                    </ul>
+                </div>
+
+                <!-- EMC -->
+                <div class="bg-card border border-border rounded-xl p-8 shadow-elegant animate-in-view delay-200">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-foreground">EMC Corporation</h3>
+                            <p class="text-primary font-medium mt-1">Product Manager / Data Analyst</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 text-muted-foreground text-sm flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> May 2010 – Mar 2014
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-muted-foreground/90 list-disc list-outside ml-5">
+                        <li>Authored configuration rules and built the tool used for every VMAX Cloud Edition BOM.</li>
+                        <li>Modeled thousands of configuration permutations to identify margin impacts and inform pricing.</li>
+                        <li>Owned the quarterly business overview deck, 5-year plans, and forecasting.</li>
+                        <li>Gathered and documented requirements for automated ordering applications and presales sizing tools.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Projects (GitHub) -->
+    <section id="projects" class="py-20 lg:py-24 bg-card/30 border-t border-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16 animate-in-view">
+                <h2 class="text-3xl font-bold text-foreground mb-4 tracking-tight">Personal Projects</h2>
+                <p class="text-lg text-muted-foreground max-w-2xl">Open-source tools, agentic systems, and infrastructure experiments.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- All My Agents -->
+                <a href="https://github.com/amack87/all-my-agents" target="_blank" class="group block bg-card border border-border border-t-2 border-t-muted-foreground/20 hover:border-t-primary/70 rounded-xl p-6 shadow-card transition-all animate-in-view">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="terminal-square" class="w-8 h-8 text-primary"></i>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-foreground mb-2">All My Agents</h3>
+                    <p class="text-sm text-muted-foreground mb-4 line-clamp-3">Native macOS app for managing AI coding agent tmux sessions — session sidebar, embedded terminals, speedrun mode, zoom controls.</p>
+                    <div class="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                        <span class="px-2 py-1 rounded-md bg-muted">Swift</span>
+                    </div>
+                </a>
+
+                <!-- All My Agents Web -->
+                <a href="https://github.com/amack87/all-my-agents-web" target="_blank" class="group block bg-card border border-border border-t-2 border-t-muted-foreground/20 hover:border-t-primary/70 rounded-xl p-6 shadow-card transition-all animate-in-view delay-100">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="globe" class="w-8 h-8 text-primary"></i>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-foreground mb-2">All My Agents Web</h3>
+                    <p class="text-sm text-muted-foreground mb-4 line-clamp-3">Web interface for managing AI coding agent sessions across machines — mobile-first, multi-machine mesh via Tailscale, speedrun mode.</p>
+                    <div class="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                        <span class="px-2 py-1 rounded-md bg-muted">JavaScript</span>
+                        <span class="px-2 py-1 rounded-md bg-muted">Tailscale</span>
+                    </div>
+                </a>
+
+                <!-- Tmux Agent Hibernator -->
+                <a href="https://github.com/amack87/tmux-agent-hibernator" target="_blank" class="group block bg-card border border-border border-t-2 border-t-muted-foreground/20 hover:border-t-primary/70 rounded-xl p-6 shadow-card transition-all animate-in-view delay-200">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="moon" class="w-8 h-8 text-primary"></i>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-foreground mb-2">Tmux Agent Hibernator</h3>
+                    <p class="text-sm text-muted-foreground mb-4 line-clamp-3">Automatically hibernate and restore idle AI agent sessions in tmux (Claude Code, Codex, Cursor) to save compute.</p>
+                    <div class="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                        <span class="px-2 py-1 rounded-md bg-muted">Python</span>
+                    </div>
+                </a>
+
+                <!-- Looker MCP -->
+                <a href="https://github.com/amack87/looker-mcp" target="_blank" class="group block bg-card border border-border border-t-2 border-t-muted-foreground/20 hover:border-t-primary/70 rounded-xl p-6 shadow-card transition-all animate-in-view">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="bar-chart-2" class="w-8 h-8 text-primary"></i>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-foreground mb-2">Looker MCP</h3>
+                    <p class="text-sm text-muted-foreground mb-4 line-clamp-3">Model Context Protocol (MCP) server that builds entire Looker dashboards from natural language prompts.</p>
+                    <div class="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                        <span class="px-2 py-1 rounded-md bg-muted">TypeScript</span>
+                        <span class="px-2 py-1 rounded-md bg-muted">MCP</span>
+                    </div>
+                </a>
+
+                <!-- Zapier Utils -->
+                <a href="https://github.com/amack87/zapier-utils" target="_blank" class="group block bg-card border border-border border-t-2 border-t-muted-foreground/20 hover:border-t-primary/70 rounded-xl p-6 shadow-card transition-all animate-in-view delay-100">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="zap" class="w-8 h-8 text-primary"></i>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-foreground mb-2">Zapier Utils</h3>
+                    <p class="text-sm text-muted-foreground mb-4 line-clamp-3">Zapier Utils extension for Google Chrome to enhance automation workflows and visibility.</p>
+                    <div class="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                        <span class="px-2 py-1 rounded-md bg-muted">Browser Extension</span>
+                    </div>
+                </a>
+
+                <!-- Sandboxed Agent Framework (from Resume) -->
+                <div class="group block bg-card border border-border border-t-2 border-t-muted-foreground/20 rounded-xl p-6 shadow-card transition-all animate-in-view delay-200">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="shield" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-foreground mb-2">Sandboxed Agent Framework</h3>
+                    <p class="text-sm text-muted-foreground mb-4 line-clamp-3">Apple Container-based runtime for executing Claude Code agents in completely isolated virtual machines.</p>
+                    <div class="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                        <span class="px-2 py-1 rounded-md bg-muted">macOS</span>
+                        <span class="px-2 py-1 rounded-md bg-muted">Security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-20 lg:py-24 bg-background border-t border-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16 animate-in-view">
+                <h2 class="text-3xl font-bold text-foreground mb-4 tracking-tight">Technical Arsenal</h2>
+                <p class="text-lg text-muted-foreground max-w-2xl">The tools, languages, and platforms I use to build data systems.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Data & Analytics -->
+                <div class="animate-in-view">
+                    <h3 class="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                        <i data-lucide="database" class="w-5 h-5 text-primary"></i> Data & Analytics
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Snowflake</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">SQL</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">dbt / dbt Cloud</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Looker & LookML</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Python (Pandas, NumPy)</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Tableau</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">HyperLogLog</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">ETL Design</span>
+                    </div>
+                </div>
+
+                <!-- AI & Agent Tooling -->
+                <div class="animate-in-view delay-100">
+                    <h3 class="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                        <i data-lucide="bot" class="w-5 h-5 text-primary"></i> AI & Agent Tooling
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Claude Code</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">OpenAI Codex</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">MCP Server Dev</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Anthropic SDK</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">AWS Bedrock AgentCore</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">LangGraph</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Prompt Engineering</span>
+                    </div>
+                </div>
+
+                <!-- Languages & Frameworks -->
+                <div class="animate-in-view">
+                    <h3 class="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                        <i data-lucide="code" class="w-5 h-5 text-primary"></i> Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Python</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">JavaScript / TypeScript</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Node.js</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">SuiteScript</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">SOQL / Apex</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Bash</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">R</span>
+                    </div>
+                </div>
+
+                <!-- Cloud & Infrastructure -->
+                <div class="animate-in-view delay-100">
+                    <h3 class="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                        <i data-lucide="server" class="w-5 h-5 text-primary"></i> Infrastructure
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">AWS (Glue, Iceberg, EC2, S3)</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Docker</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Tailscale</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Linux/Unix Admin</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Salesforce</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">NetSuite</span>
+                        <span class="px-3 py-1.5 bg-muted rounded-md text-sm text-muted-foreground">Stripe APIs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 lg:py-24 bg-card/30 border-y border-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="animate-in-view">
+                    <h2 class="text-3xl font-bold text-foreground mb-6 tracking-tight">How I Operate</h2>
+                    <div class="space-y-6 text-muted-foreground leading-relaxed">
+                        <p>
+                            I build data platforms and internal tools that turn complex, siloed operational data into automated systems. My approach is rooted in understanding how work actually gets done across revenue, finance, and engineering teams.
+                        </p>
+                        <p>
+                            In my most recent role, this meant acting as the sole owner of the BI and data platform—running everything from the Snowflake/dbt warehouse to the integration layer across NetSuite, Stripe, and Salesforce. It means finding leverage points, like reducing metric materialization times by 95% using HyperLogLog, or building LLM agents that autonomously process client order forms.
+                        </p>
+                        <p>
+                            I hold an M.S. in Predictive Analytics from Northwestern University, and I'm actively exploring the intersection of modern data infrastructure and autonomous LLM orchestration to push the boundaries of what internal tooling can achieve.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 animate-in-view delay-100">
+                    <div class="bg-card border border-border p-6 rounded-xl shadow-elegant">
+                        <i data-lucide="layers" class="w-6 h-6 text-primary mb-4"></i>
+                        <h4 class="font-bold text-foreground mb-2">End-to-End Ownership</h4>
+                        <p class="text-sm text-muted-foreground">From raw API extraction to board-level reporting and financial system orchestration.</p>
+                    </div>
+                    <div class="bg-card border border-border p-6 rounded-xl shadow-elegant">
+                        <i data-lucide="zap" class="w-6 h-6 text-primary mb-4"></i>
+                        <h4 class="font-bold text-foreground mb-2">High Leverage</h4>
+                        <p class="text-sm text-muted-foreground">Optimizing warehouse costs by 40% and replacing manual labor with deterministic code.</p>
+                    </div>
+                    <div class="bg-card border border-border p-6 rounded-xl shadow-elegant">
+                        <i data-lucide="cpu" class="w-6 h-6 text-primary mb-4"></i>
+                        <h4 class="font-bold text-foreground mb-2">Agentic Systems</h4>
+                        <p class="text-sm text-muted-foreground">Pioneering practical applications of Model Context Protocol and autonomous LLM workflows.</p>
+                    </div>
+                    <div class="bg-card border border-border p-6 rounded-xl shadow-elegant">
+                        <i data-lucide="workflow" class="w-6 h-6 text-primary mb-4"></i>
+                        <h4 class="font-bold text-foreground mb-2">System Architecture</h4>
+                        <p class="text-sm text-muted-foreground">Bridging the gap between software engineering, data warehousing, and RevOps.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="py-20 lg:py-28 bg-hero-gradient bg-dots-subtle text-center relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-6 relative z-10 animate-in-view">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Build What's Next?</h2>
+            <p class="text-lg text-white/70 mb-10">
+                Whether you're looking to scale your data infrastructure, optimize warehouse spend, or explore autonomous agent implementations, let's talk.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="mailto:amack87@gmail.com" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 transition-colors">
+                    <i data-lucide="mail" class="w-4 h-4 mr-2"></i> Email Me
+                </a>
+                <a href="https://linkedin.com/in/amack87" target="_blank" class="inline-flex items-center justify-center rounded-md text-sm font-medium border border-white/20 bg-white/5 hover:bg-white/10 text-white h-11 px-8 transition-colors">
+                    <i data-lucide="linkedin" class="w-4 h-4 mr-2"></i> Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-border bg-background py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center text-sm text-muted-foreground">
+            <p>&copy; <span id="year"></span> Andy Mackenzie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Scroll Animations using Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    // Optional: Stop observing once animated
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-in-view').forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Add blur to nav on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+                nav.style.borderBottomColor = 'rgba(39, 39, 42, 0.8)';
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.style.borderBottomColor = 'rgba(39, 39, 42, 1)';
+            }
+        });
+    </script>
+</body>
+</html>
